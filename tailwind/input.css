@@ -3,6 +3,12 @@
 .container {
   @apply mx-auto px-4;
 }
-.rff-top-bar a {
+.rrf-top-bar a {
   @apply underline font-bold;
+}
+.mainMenu {
+  @apply flex justify-center;
+}
+.mainMenu li a {
+  @apply block py-2 px-4;
 }
