@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Shop.CO</title>
+    {{
+      content_for_header
+    }}
+
+    {{
+      "style.css" | asset_url | stylesheet_tag
+    }}
+    {{
+      "tailwind.css" | asset_url | stylesheet_tag
+    }}
+  </head>
+  <body>
+    {% sections 'header-group' %}
+    {{ content_for_layout }}
+  </body>
+</html>

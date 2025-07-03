@@ -1,0 +1,8 @@
+{
+  "name": "sections.header.name",
+  "type": "header",
+  "sections": {
+    "header": { "type": "header", "settings": {} }
+  },
+  "order": ["header"]
+}

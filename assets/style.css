@@ -1,0 +1,45 @@
+@font-face {
+  font-family: "Satoshi";
+  src: url("Satoshi-Regular.woff2") format("woff2"),
+    url("Satoshi-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("Satoshi-Bold.woff2") format("woff2"),
+    url("Satoshi-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Integral CF";
+  src: url("IntegralCF-Bold.woff2") format("woff2"),
+    url("IntegralCF-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Satoshi", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Satoshi", sans-serif;
+  font-weight: 700;
+}

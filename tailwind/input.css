@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+.container {
+  @apply mx-auto px-4;
+}
+.rff-top-bar a {
+  @apply underline font-bold;
+}
