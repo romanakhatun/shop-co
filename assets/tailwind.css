@@ -15,6 +15,8 @@
     --container-lg: 32rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
     --text-4xl: 2.25rem;
     --text-4xl--line-height: calc(2.5 / 2.25);
     --font-weight-semibold: 600;
@@ -197,6 +199,12 @@
   .-mx-4 {
     margin-inline: calc(var(--spacing) * -4);
   }
+  .mx-2 {
+    margin-inline: calc(var(--spacing) * 2);
+  }
+  .my-2 {
+    margin-block: calc(var(--spacing) * 2);
+  }
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
   }
@@ -227,18 +235,6 @@
   .table {
     display: table;
   }
-  .h-\[100vh\] {
-    height: 100vh;
-  }
-  .h-\[500px\] {
-    height: 500px;
-  }
-  .h-\[500vh\] {
-    height: 500vh;
-  }
-  .h-\[663px\] {
-    height: 663px;
-  }
   .min-h-\[663px\] {
     min-height: 663px;
   }
@@ -250,6 +246,9 @@
   }
   .w-1\/3 {
     width: calc(1/3 * 100%);
+  }
+  .w-1\/4 {
+    width: calc(1/4 * 100%);
   }
   .w-3 {
     width: calc(var(--spacing) * 3);
@@ -269,9 +268,6 @@
   .w-full {
     width: 100%;
   }
-  .max-w-lg {
-    max-width: var(--container-lg);
-  }
   .border-collapse {
     border-collapse: collapse;
   }
@@ -289,9 +285,6 @@
   }
   .justify-between {
     justify-content: space-between;
-  }
-  .justify-center {
-    justify-content: center;
   }
   .justify-end {
     justify-content: flex-end;
@@ -328,9 +321,6 @@
   .bg-cover {
     background-size: cover;
   }
-  .bg-center {
-    background-position: center;
-  }
   .bg-right {
     background-position: right;
   }
@@ -355,8 +345,8 @@
   .py-10 {
     padding-block: calc(var(--spacing) * 10);
   }
-  .pt-8 {
-    padding-top: calc(var(--spacing) * 8);
+  .py-20 {
+    padding-block: calc(var(--spacing) * 20);
   }
   .pt-10 {
     padding-top: calc(var(--spacing) * 10);
@@ -379,6 +369,10 @@
   .text-center {
     text-align: center;
   }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
   .text-4xl {
     font-size: var(--text-4xl);
     line-height: var(--tw-leading, var(--text-4xl--line-height));
@@ -387,8 +381,14 @@
     font-size: var(--text-sm);
     line-height: var(--tw-leading, var(--text-sm--line-height));
   }
+  .text-\[20px\] {
+    font-size: 20px;
+  }
   .text-\[40px\] {
     font-size: 40px;
+  }
+  .text-\[48px\] {
+    font-size: 48px;
   }
   .text-\[64px\] {
     font-size: 64px;
