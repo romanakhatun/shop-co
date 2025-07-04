@@ -25,6 +25,7 @@
   font-display: swap;
 }
 
+*,
 body {
   font-family: "Satoshi", sans-serif;
 }
@@ -35,6 +36,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Satoshi", sans-serif;
+  font-family: "Integral CF", sans-serif;
   font-weight: 700;
 }
