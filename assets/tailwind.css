@@ -309,6 +309,9 @@
   .bg-right {
     background-position: right;
   }
+  .p-3 {
+    padding: calc(var(--spacing) * 3);
+  }
   .p-4 {
     padding: calc(var(--spacing) * 4);
   }
@@ -445,15 +448,6 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
   margin-bottom: calc(var(--spacing) * 8);
   font-size: 48px;
   text-transform: uppercase;
-}
-.testimonial-carousel > svg {
-  position: absolute;
-  top: -70px;
-  right: 0;
-  cursor: pointer;
-}
-.testimonial-carousel > svg:first-child {
-  margin-right: 25px;
 }
 @property --tw-rotate-x {
   syntax: "*";

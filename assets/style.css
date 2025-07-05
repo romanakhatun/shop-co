@@ -42,3 +42,17 @@ h6 {
 .arrivalsTitle {
   font-family: "Satoshi", sans-serif;
 }
+.testimonial-carousel > svg {
+  position: absolute;
+  top: -70px;
+  right: 0;
+  cursor: pointer;
+}
+
+.testimonial-carousel > svg:first-child {
+  margin-right: 25px;
+}
+.slick-list {
+  margin-left: -12px;
+  margin-right: -12px;
+}
