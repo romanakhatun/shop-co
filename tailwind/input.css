@@ -23,3 +23,13 @@ input[type="search"] {
 .rff-section-title {
   @apply text-[48px] mb-8 uppercase;
 }
+.testimonial-carousel > svg {
+  position: absolute;
+  top: -70px;
+  right: 0;
+  cursor: pointer;
+}
+
+.testimonial-carousel > svg:first-child {
+  margin-right: 25px;
+}
