@@ -42,6 +42,18 @@ h6 {
 .arrivalsTitle {
   font-family: "Satoshi", sans-serif;
 }
+.rff-banner-1 {
+  background-image: url(./rff-banner-1.png);
+}
+.rff-banner-2 {
+  background-image: url(./rff-banner-2.png);
+}
+.rff-banner-3 {
+  background-image: url(./rff-banner-3.png);
+}
+.rff-banner-4 {
+  background-image: url(./rff-banner-4.png);
+}
 .testimonial-carousel > svg {
   position: absolute;
   top: -70px;
