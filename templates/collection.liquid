@@ -94,7 +94,15 @@
       <button class="mt-6.5 rounded-full py-4 px-8 cursor-pointer bg-black text-white w-full">Apply Filter</button>
     </div>
     <div class="w-9/12 pl-8">
-      <div class="text-3xl font-bold">{{ collection.title }}</div>
+      <div class="text-3xl font-bold mb-4">{{ collection.title }}</div>
+
+      <div class="flex flex-wrap gap-y-8 -mx-4">
+        {% for i in (1..12) %}
+          <div class="w-1/4 px-4">
+            {% render 'single-product' %}
+          </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>
