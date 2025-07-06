@@ -4,7 +4,7 @@
       <div class="bg-black flex rounded-3xl p-8">
         <div class="w-1/2">
           <h2 class="text-white text-[40px]">
-            STAY UPTO DATE ABOUT <br />
+            STAY UPTO DATE ABOUT <br>
             OUR LATEST OFFERS
           </h2>
         </div>
@@ -33,11 +33,9 @@
                 class="w-full pl-3"
                 type="email"
                 placeholder="Enter your email address"
-              />
+              >
             </div>
-            <button class="bg-white w-full rounded-full p-4 cursor-pointer">
-              Subscribe to Newsletter
-            </button>
+            <button class="bg-white w-full rounded-full p-4 cursor-pointer">Subscribe to Newsletter</button>
           </form>
         </div>
       </div>
@@ -47,47 +45,49 @@
     <div class="container">
       <div class="flex border-b border-gray-200 mb-10">
         <div class="w-3/12 px-4">
-          <a href=""><img src="{{ 'logo.png' | asset_url }}" alt="" /></a>
+          <a href=""><img src="{{ 'logo.png' | asset_url }}" alt="" width="" height=""></a>
         </div>
         <div class="w-9/12 flex items-center">
           {% for i in (1..4) %}
-          <div class="w-3/12 px-4 pb-12">
-            <div class="font-semibold uppercase tracking-[3px]">Company</div>
-            <ul class="leading-[35px]">
-              <li><a href="">About</a></li>
-              <li><a href="">Features</a></li>
-              <li><a href="">Works</a></li>
-              <li><a href="">Career</a></li>
-            </ul>
-          </div>
+            <div class="w-3/12 px-4 pb-12">
+              <div class="font-semibold uppercase tracking-[3px]">Company</div>
+              <ul class="leading-[35px]">
+                <li><a href="">About</a></li>
+                <li><a href="">Features</a></li>
+                <li><a href="">Works</a></li>
+                <li><a href="">Career</a></li>
+              </ul>
+            </div>
           {% endfor %}
-          <!-- <div class="w-3/12 px-4">
-            <div class="">Help</div>
-            <ul>
-              <li><a href="">Customer Support</a></li>
-              <li><a href="">Delivery Details</a></li>
-              <li><a href="">Terms & Conditions</a></li>
-              <li><a href="">Privacy Policy</a></li>
-            </ul>
-          </div>
-          <div class="w-3/12 px-4">
-            <div class="">Faq</div>
-            <ul>
-              <li><a href="">Account</a></li>
-              <li><a href="">Manage Deliveries</a></li>
-              <li><a href="">Orders</a></li>
-              <li><a href="">Payments</a></li>
-            </ul>
-          </div>
-          <div class="w-3/12 px-4">
-            <div class="">Resources</div>
-            <ul>
-              <li><a href="">Free eBooks</a></li>
-              <li><a href="">Development tutorial</a></li>
-              <li><a href="">How to - Blog</a></li>
-              <li><a href="">Youtube Playlist</a></li>
-            </ul>
-          </div> -->
+          <!--
+            <div class="w-3/12 px-4">
+              <div class="">Help</div>
+              <ul>
+                <li><a href="">Customer Support</a></li>
+                <li><a href="">Delivery Details</a></li>
+                <li><a href="">Terms & Conditions</a></li>
+                <li><a href="">Privacy Policy</a></li>
+              </ul>
+            </div>
+            <div class="w-3/12 px-4">
+              <div class="">Faq</div>
+              <ul>
+                <li><a href="">Account</a></li>
+                <li><a href="">Manage Deliveries</a></li>
+                <li><a href="">Orders</a></li>
+                <li><a href="">Payments</a></li>
+              </ul>
+            </div>
+            <div class="w-3/12 px-4">
+              <div class="">Resources</div>
+              <ul>
+                <li><a href="">Free eBooks</a></li>
+                <li><a href="">Development tutorial</a></li>
+                <li><a href="">How to - Blog</a></li>
+                <li><a href="">Youtube Playlist</a></li>
+              </ul>
+            </div>
+          -->
         </div>
       </div>
       <div>

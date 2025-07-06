@@ -1,5 +1,5 @@
-<img src="{{ 'arrivals.png' | asset_url }}" alt="" width="" height="">
-<h3 class="arrivalsTitle text-[20px]">T-shirt with Tape Details</h3>
+<img class="rounded-2xl" src="{{ product.featured_image | image_url }}" alt="{{ product.title }}" width="" height="">
+<h3 class="arrivalsTitle text-[20px]">{{ product.title }}</h3>
 <div class="flex my-2 items-center">
   {% for i in (1..4) %}
     <svg

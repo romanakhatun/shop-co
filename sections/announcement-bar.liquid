@@ -1,0 +1,17 @@
+<div class="bg-black py-2 text-white text-center text-sm">
+  <div class="container rrf-top-bar">{{ section.settings.announcement_content }}</div>
+</div>
+
+{% schema %}
+{
+  "name": "announcement-bar",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "announcement_content",
+      "label": "Text",
+      "default": "Sign up and get 20% off to your first order. Sign Up Now"
+    }
+  ]
+}
+{% endschema %}

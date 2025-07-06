@@ -97,9 +97,9 @@
       <div class="text-3xl font-bold mb-4">{{ collection.title }}</div>
 
       <div class="flex flex-wrap gap-y-8 -mx-4">
-        {% for i in (1..12) %}
+        {% for product in collection.products %}
           <div class="w-1/4 px-4">
-            {% render 'single-product' %}
+            {% render 'single-product', product: product %}
           </div>
         {% endfor %}
       </div>
