@@ -23,3 +23,10 @@ input[type="search"] {
 .rff-section-title {
   @apply text-[48px] mb-8 uppercase;
 }
+
+.border-style {
+  @apply border-t border-t-black/10;
+}
+.sub-title {
+  @apply text-xl font-bold;
+}
