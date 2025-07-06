@@ -1,0 +1,22 @@
+<div class="bg-black">
+  <div class="container">
+    <div class="flex justify-between">
+      {% for i in (1..5) %}
+        <div class="py-10">
+          <img src="{{ 'company' | append: i |append: '.png'  | asset_url }}" alt="" width="" height="">
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Brand Logos",
+  "presets": [
+    {
+      "name": "Brand Logos"
+    }
+  ]
+}
+{% endschema %}
