@@ -1,0 +1,43 @@
+<h2 class="rff-section-title text-center">{{ section.settings.title }}</h2>
+<div class="flex flex-wrap gap-y-8 -mx-4 justify-between">
+  {% for product in section.settings.collection.products %}
+    <div class="w-1/4 px-4">
+      {% render 'single-product', product: product %}
+    </div>
+  {% endfor %}
+</div>
+<div class="mt-10 text-center">
+  <a href="{{ section.settings.url }}" class="rounded-full px-12 py-2 border border-gray-200 inline-block">
+    {{ section.settings.url_text }}
+  </a>
+</div>
+
+{% schema %}
+{
+  "name": "Product Grid",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default": "NEW ARRIAIVALS"
+    },
+    {
+      "id": "collection",
+      "type": "collection",
+      "label": "Collection"
+    },
+    {
+      "id": "url",
+      "type": "url",
+      "label": "Link"
+    },
+    {
+      "id": "url_text",
+      "type": "text",
+      "label": "URL Text",
+      "default": "View All"
+    }
+  ]
+}
+{% endschema %}
