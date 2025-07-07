@@ -27,6 +27,9 @@ input[type="search"] {
 .border-style {
   @apply border-t border-t-black/10;
 }
+.button-style {
+  @apply rounded-full cursor-pointer bg-black text-white;
+}
 .sub-title {
   @apply text-xl font-bold;
 }

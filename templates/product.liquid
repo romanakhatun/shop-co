@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mb-20">
   <div class="flex items-center">
     <a class="text-black/60" href="">Home</a>
     <svg
@@ -13,6 +13,27 @@
     </svg>
     <span>{{ product.title }}</span>
   </div>
-  <h1 class="rff-section-title">{{ product.title }}</h1>
+  <h1 class="rff-section-title ">{{ product.title }}</h1>
   <div>{{ product.content }}</div>
+  {% form 'product', product %}
+    {% if product.variants.size > 1 %}
+      <select name="id" id="variant-select">
+        {% for variant in product.variants %}
+          <option value="{{ variant.id }}">{{ variant.title }}</option>
+        {% endfor %}
+      </select>
+    {% else %}
+      <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+    {% endif %}
+
+    <input
+      class="w-40 bg-[#F0F0F0] py-4 text-center rounded-full focus:outline-0"
+      type="number"
+      min="1"
+      value="1"
+      id=""
+      name="quantity"
+    >
+    <button class="button-style py-[15px] px-10">Add to cart</button>
+  {% endform %}
 </div>

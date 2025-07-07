@@ -1,11 +1,19 @@
 <div class="bg-black">
   <div class="container">
-    <div class="flex justify-between">
-      {% for i in (1..5) %}
-        <div class="py-10">
-          <img src="{{ 'company' | append: i |append: '.png'  | asset_url }}" alt="" width="" height="">
-        </div>
+    <div class="flex justify-between py-10">
+      {% for block in section.blocks %}
+        {%- case block.type -%}
+          {%- when 'logos' -%}
+            {{ block.settings.logo | image_url: width: auto | image_tag }}
+        {% endcase %}
       {% endfor %}
+      {% comment %}
+         {% for i in (1..5) %}
+          <div class="py-10">
+            <img src="{{ 'company' | append: i |append: '.png'  | asset_url }}" alt="" width="" height="">
+          </div>
+        {% endfor %}
+      {% endcomment %}
     </div>
   </div>
 </div>
@@ -16,6 +24,24 @@
   "disabled_on": {
     "groups": ["header", "footer"]
   },
+  "blocks": [
+    {
+      "type": "logos",
+      "name": "Logos",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Upload LOGO"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Add Company URL"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
       "name": "Brand Logos"
