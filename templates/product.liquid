@@ -7,32 +7,60 @@
       {% render 'greater-arrow' %}
       <span>{{ product.title }}</span>
     </div>
-    <h1 class="rff-section-title ">{{ product.title }}</h1>
 
-    <div>{{ product.content }}</div>
-
-    {% form 'product', product %}
-      {% if product.variants.size > 1 %}
-        <select id="variant_id">
-          {% for variant in product.variants %}
-            <option value="{{ variant.id }}">{{ variant.title }}</option>
-          {% endfor %}
-        </select>
-
-      {% else %}
-        <input
-          name="quantity"
-          type="hidden"
-          class="quantity-hidden"
-          id="variant_id"
-          value="{{ product.variants.first.id }}"
-        >
-      {% endif %}
-
-      <div class="flex items-center">
-        {% render 'stepper-number', type: 'product' %}
-        <button type="submit" class="button-style py-[15px] px-10">Add to cart</button>
+    <div class="flex gap-5">
+      <div>
+        {% if product.images.size > 1 %}
+          <div class="product-slider">
+            {% for image in product.images %}
+              <img
+                src="{{ image | image_url: width: 500 }}"
+                alt="{{ product.title }}"
+                width=""
+                height=""
+              >
+            {% endfor %}
+          </div>
+        {% else %}
+          <img
+            src="{{ product.featured_image | image_url: width: 450 }}"
+            alt="{{ product.title }}"
+            width=""
+            height=""
+          >
+        {% endif %}
       </div>
-    {% endform %}
+
+      <div>
+        <h1 class="rff-section-title ">{{ product.title }}</h1>
+        <h2 class="text-2xl font-bold mb-4">{{ product.price | money }}</h2>
+        <p class="text-gray-600 mb-6">{{ product.description }}</p>
+
+        {% form 'product', product %}
+          {% if product.variants.size > 1 %}
+            <select id="variant_id">
+              {% for variant in product.variants %}
+                <option value="{{ variant.id }}">{{ variant.title }}</option>
+              {% endfor %}
+            </select>
+            <br>
+
+          {% else %}
+            <input
+              name="quantity"
+              type="hidden"
+              class="quantity-hidden"
+              id="variant_id"
+              value="{{ product.variants.first.id }}"
+            >
+          {% endif %}
+
+          <div class="flex items-center">
+            {% render 'stepper-number', type: 'product' %}
+            <button type="submit" class="button-style py-[15px] px-10">Add to cart</button>
+          </div>
+        {% endform %}
+      </div>
+    </div>
   </div>
 </div>
