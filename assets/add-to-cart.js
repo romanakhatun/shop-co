@@ -32,7 +32,30 @@ jQuery(document).ready(function ($) {
       data: JSON.stringify(formData),
       dataType: "json",
       success: function (response) {
+        $("#cart-drawer-items").empty();
+        //foreach response
+        $.each(response.items, function (index, item) {
+          $("#cart-drawer-items").append(
+            `<div class="flex items-center py-2">
+                  <div class="flex-shrink-0">
+                    <img
+                      src="${item.image}" alt="${item.title}"
+                      class="object-cover border border-black/10 rounded-lg"
+                      width="64"
+                      height="64"
+                    >
+                  </div>
+                  <div class="flex-1 ml-4">
+                    <h4 class="text-sm font-semibold">${item.title}</h4>
+                    <p class="text-sm text-gray-500">Quantity: ${item.quantity}</p>
+                  </div>
+                </div>
+              `
+          );
+        });
+
         $(addToCartForm).find('button[type="submit"]').text("Added to Cart");
+        $(".cart-drawer").removeClass("hidden");
       },
       error: function (error) {
         $(addToCartForm).find('button[type="submit"]').text("Added to Cart");

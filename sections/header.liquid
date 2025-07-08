@@ -1,6 +1,6 @@
 <header>
   <div class="py-6">
-    <div class="container">
+    <div class="container relative">
       <div class="flex -mx-4 items-center justify-between">
         <div class="px-4">
           <a href=""><img src="{{ 'logo.png' | asset_url }}" alt="" width="" height=""></a>
@@ -15,24 +15,7 @@
         </div>
         <div class="px-4">
           <form class="flex items-center bg-gray-100 rounded-full px-4">
-            <svg
-              width="20.273682"
-              height="20.274620"
-              viewBox="0 0 20.2737 20.2746"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-            >
-              <desc>Created with Pixso.</desc>
-              <defs />
-              <path
-                id="Vector"
-                d="M19.93 18.34L15.48 13.89C16.82 12.15 17.44 9.97 17.23 7.78C17.01 5.6 15.97 3.58 14.33 2.14C12.68 0.69 10.54 -0.07 8.35 0C6.16 0.07 4.08 0.97 2.52 2.52C0.97 4.07 0.07 6.16 0 8.35C-0.07 10.54 0.69 12.68 2.14 14.33C3.58 15.97 5.6 17.01 7.78 17.23C9.97 17.44 12.15 16.82 13.89 15.48L18.34 19.94C18.45 20.04 18.57 20.13 18.71 20.18C18.85 20.24 18.99 20.27 19.14 20.27C19.29 20.27 19.44 20.24 19.57 20.18C19.71 20.13 19.83 20.04 19.94 19.94C20.04 19.83 20.13 19.71 20.18 19.57C20.24 19.44 20.27 19.29 20.27 19.14C20.27 18.99 20.24 18.85 20.18 18.71C20.13 18.57 20.04 18.45 19.94 18.35L19.93 18.34ZM2.26 8.64C2.26 7.38 2.64 6.15 3.34 5.1C4.04 4.05 5.03 3.23 6.2 2.75C7.36 2.27 8.65 2.14 9.88 2.39C11.12 2.63 12.26 3.24 13.15 4.13C14.04 5.02 14.65 6.16 14.89 7.4C15.14 8.63 15.01 9.91 14.53 11.08C14.05 12.24 13.23 13.24 12.18 13.94C11.13 14.64 9.9 15.01 8.64 15.01C6.95 15.01 5.33 14.34 4.13 13.14C2.94 11.95 2.27 10.33 2.26 8.64Z"
-                fill="#000000"
-                fill-opacity="0.400000"
-                fill-rule="nonzero"
-              />
-            </svg>
+            {% render 'search-icon' %}
             <input
               class="p-4 w-full"
               name="search"
@@ -44,68 +27,51 @@
         <div class="px-4">
           <div class="flex">
             <a class="mr-2" href="">
-              <svg
-                width="22.125122"
-                height="20.250000"
-                viewBox="0 0 22.1251 20.25"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-              >
-                <desc>Created with Pixso.</desc>
-                <defs />
-                <path
-                  id="Vector"
-                  d="M9.37 18.37C9.37 18.74 9.26 19.1 9.05 19.41C8.85 19.72 8.56 19.96 8.21 20.1C7.87 20.24 7.49 20.28 7.13 20.21C6.77 20.14 6.43 19.96 6.17 19.7C5.91 19.43 5.73 19.1 5.66 18.74C5.58 18.37 5.62 18 5.76 17.65C5.9 17.31 6.14 17.02 6.45 16.81C6.76 16.61 7.12 16.5 7.5 16.5C7.99 16.5 8.47 16.69 8.82 17.04C9.17 17.4 9.37 17.87 9.37 18.37ZM17.25 16.5C16.87 16.5 16.51 16.61 16.2 16.81C15.89 17.02 15.65 17.31 15.51 17.65C15.37 18 15.33 18.37 15.41 18.74C15.48 19.1 15.66 19.43 15.92 19.7C16.18 19.96 16.52 20.14 16.88 20.21C17.24 20.28 17.62 20.24 17.96 20.1C18.31 19.96 18.6 19.72 18.8 19.41C19.01 19.1 19.12 18.74 19.12 18.37C19.12 17.87 18.92 17.4 18.57 17.04C18.22 16.69 17.74 16.5 17.25 16.5ZM22.07 5.2L19.51 13.52C19.35 14.05 19.02 14.53 18.56 14.86C18.11 15.19 17.56 15.37 17 15.37L7.77 15.37C7.2 15.37 6.65 15.18 6.19 14.84C5.74 14.5 5.4 14.01 5.25 13.47L2.04 2.25L1.12 2.25C0.82 2.25 0.54 2.13 0.32 1.92C0.11 1.7 0 1.42 0 1.12C0 0.82 0.11 0.54 0.32 0.32C0.54 0.11 0.82 0 1.12 0L2.32 0C2.73 0 3.12 0.13 3.45 0.37C3.78 0.62 4.01 0.96 4.12 1.36L4.81 3.75L21 3.75C21.17 3.74 21.34 3.79 21.5 3.87C21.66 3.94 21.8 4.06 21.9 4.2C22 4.34 22.07 4.51 22.1 4.68C22.13 4.85 22.12 5.03 22.07 5.2ZM19.47 6L5.45 6L7.41 12.85C7.43 12.93 7.48 13 7.54 13.04C7.61 13.09 7.69 13.12 7.77 13.12L17 13.12C17.08 13.12 17.16 13.09 17.23 13.05C17.29 13 17.34 12.93 17.36 12.86L19.47 6Z"
-                  fill="#000000"
-                  fill-opacity="1.000000"
-                  fill-rule="nonzero"
-                />
-              </svg>
+              {% render 'cart-icon' %}
             </a>
             <a href="">
-              <svg
-                width="24.000000"
-                height="24.000000"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-              >
-                <desc>Created with Pixso.</desc>
-                <defs>
-                  <clipPath id="clip20_25">
-                    <rect
-                      id="Frame"
-                      rx="0.000000"
-                      width="23.000000"
-                      height="23.000000"
-                      transform="translate(0.500000 0.500000)"
-                      fill="white"
-                      fill-opacity="0"
-                    />
-                  </clipPath>
-                </defs>
-                <rect
-                  id="Frame"
-                  rx="0.000000"
-                  width="23.000000"
-                  height="23.000000"
-                  transform="translate(0.500000 0.500000)"
-                  fill="#FFFFFF"
-                  fill-opacity="0"
-                />
-                <g clip-path="url(#clip20_25)">
-                  <path
-                    id="Vector"
-                    d="M12 1.87C9.99 1.87 8.03 2.46 6.37 3.58C4.7 4.69 3.41 6.27 2.64 8.12C1.87 9.97 1.67 12.01 2.06 13.97C2.46 15.93 3.42 17.74 4.84 19.15C6.25 20.57 8.06 21.53 10.02 21.93C11.98 22.32 14.02 22.12 15.87 21.35C17.72 20.58 19.3 19.29 20.41 17.62C21.53 15.96 22.12 14 22.12 12C22.12 9.31 21.05 6.74 19.15 4.84C17.25 2.94 14.68 1.87 12 1.87ZM7.45 18.42C7.98 17.71 8.66 17.13 9.45 16.73C10.24 16.33 11.11 16.12 12 16.12C12.88 16.12 13.75 16.33 14.54 16.73C15.33 17.13 16.01 17.71 16.54 18.42C15.21 19.36 13.62 19.87 12 19.87C10.37 19.87 8.78 19.36 7.45 18.42ZM9.37 11.25C9.37 10.73 9.52 10.22 9.81 9.79C10.1 9.35 10.51 9.02 10.99 8.82C11.47 8.62 12 8.57 12.51 8.67C13.02 8.77 13.48 9.02 13.85 9.39C14.22 9.76 14.47 10.22 14.57 10.73C14.67 11.24 14.62 11.77 14.42 12.25C14.22 12.73 13.89 13.14 13.45 13.43C13.02 13.72 12.51 13.87 12 13.87C11.3 13.87 10.63 13.59 10.14 13.1C9.65 12.61 9.37 11.94 9.37 11.25ZM18.18 16.86C17.45 15.94 16.52 15.19 15.46 14.67C16.14 13.98 16.6 13.12 16.78 12.17C16.96 11.23 16.86 10.25 16.49 9.36C16.12 8.48 15.5 7.72 14.7 7.19C13.9 6.65 12.96 6.37 12 6.37C11.03 6.37 10.09 6.65 9.29 7.19C8.49 7.72 7.87 8.48 7.5 9.36C7.13 10.25 7.03 11.23 7.21 12.17C7.39 13.12 7.85 13.98 8.53 14.67C7.47 15.19 6.54 15.94 5.81 16.86C4.89 15.7 4.32 14.31 4.16 12.84C4 11.37 4.26 9.88 4.9 8.55C5.55 7.22 6.56 6.1 7.81 5.31C9.06 4.53 10.51 4.11 11.99 4.11C13.47 4.11 14.92 4.53 16.17 5.31C17.42 6.1 18.43 7.22 19.08 8.55C19.72 9.88 19.98 11.37 19.82 12.84C19.66 14.31 19.09 15.7 18.17 16.86L18.18 16.86Z"
-                    fill="#000000"
-                    fill-opacity="1.000000"
-                    fill-rule="nonzero"
-                  />
-                </g>
-              </svg>
+              {% render 'admin-icon' %}
             </a>
+          </div>
+        </div>
+      </div>
+      <div class="cart-drawer hidden top-auto absolute shadow-xl min-w-[300px] right-6 -mt-4">
+        <div class="relative bg-white p-6">
+          <button class="cart-drawer-close absolute right-2 top-2 cursor-pointer">{% render 'close-icon' %}</button>
+          <div id="cart-drawer-items">
+            {% comment %}
+              {% for item in cart.items %}
+                <div class="flex items-center py-2">
+                  <div class="flex-shrink-0">
+                    <img
+                      src="{{ item.image | image_url: width: 65 }}"
+                      alt="{{ item.title }}"
+                      class="object-cover border border-black/10 rounded-lg"
+                      width=""
+                      height=""
+                    >
+                  </div>
+                  <div class="flex-1 ml-4">
+                    <h4 class="text-sm font-semibold">{{ item.title }}</h4>
+                    <p class="text-sm text-gray-500">{{ item.quantity }} x {{ item.price | money }}</p>
+                  </div>
+                </div>
+              {% endfor %}
+            {% endcomment %}
+          </div>
+
+          <div class="flex gap-4 my-5">
+            <div class="flex-1 block text-center border border-black/10 py-2 ">
+              <a href=" {{ routes.cart_url }}">View Cart</a>
+            </div>
+
+            <div class="flex-1 block text-center bg-black text-white border border-black/10 py-2">
+              <a href="/checkout">Checkout</a>
+            </div>
+          </div>
+
+          <div class="text-center ">
+            <button class="cart-drawer-close cursor-pointer">Continue Shopping</button>
           </div>
         </div>
       </div>
