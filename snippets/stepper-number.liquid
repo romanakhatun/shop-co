@@ -1,7 +1,7 @@
 <div class="inline-flex items-center gap-5 bg-[#F0F0F0] py-3 px-5 rounded-full">
   <button class="minus" type="button" class="cursor-pointer text-3xl">-</button>
   <span class=" font-bold">
-    {% if quantity %}
+    {% if type == 'cart' %}
       {{ quantity }}
     {% else %}
       1
@@ -14,24 +14,5 @@
   type="hidden"
   min="1"
   value="1"
-  name="{% if item_key %}updates[{{ item_key }}]{% else %}quantity{% endif %}"
+  name="{% if type == 'cart' %}updates[{{ item_key }}]{% else %}quantity{% endif %}"
 >
-{% comment %} give me jquery code for stepper properly work {% endcomment %}
-<script>
-  $(document).ready(function () {
-    let quantityInput = $('input[name="{% if item_key %}updates[{{ item_key }}]{% else %}quantity{% endif %}"]');
-    let quantity = parseInt(quantityInput.val());
-
-    $('.plus').on('click', function () {
-      quantity++;
-      quantityInput.val(quantity);
-    });
-
-    $('.minus').on('click', function () {
-      if (quantity > 1) {
-        quantity--;
-        quantityInput.val(quantity);
-      }
-    });
-  });
-</script>

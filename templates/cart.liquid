@@ -18,37 +18,40 @@
   {%- if cart.item_count != 0 -%}
     <div class="flex gap-5">
       <div class="cart-items w-7/12 border border-black/10 rounded-2xl p-5 ">
-        {%- for item in cart.items -%}
-          {% if forloop.first == false %}
-            <div class="border-style my-5"></div>
-          {% endif %}
-          <div class="flex items-center gap-4 relative ">
-            {% if item.image %}
-              <img
-                src="{{ item.image | image_url: width: 250}}"
-                alt=""
-                width=""
-                height=""
-                class="w-32 object-cover rounded-lg border border-black/10"
-              >
+        <form action="{{ routes.cart_url }}" method="post">
+          {%- for item in cart.items -%}
+            {% if forloop.first == false %}
+              <div class="border-style my-5"></div>
             {% endif %}
 
-            <div>
-              <h1>{{ item.title }}</h1>
-              <p class="py-2">{{ item.original_price | money_with_currency }}</p>
-              <p>Item quantity : {{ item.quantity }}</p>
-            </div>
+            <div class="flex items-center gap-4 relative ">
+              {% if item.image %}
+                <img
+                  src="{{ item.image | image_url: width: 250}}"
+                  alt=""
+                  width=""
+                  height=""
+                  class="w-32 object-cover rounded-lg border border-black/10"
+                >
+              {% endif %}
 
-            <div>
-              <div class="absolute right-0 top-0">
-                <a href="{{ item.url_to_remove }}">{% render 'remove', type: 'cart', quantity: item.quantity %}</a>
+              <div>
+                <h1>{{ item.title }}</h1>
+                <p class="py-2">{{ item.original_price | money_with_currency }}</p>
+                <p>Item quantity : {{ item.quantity }}</p>
               </div>
-              <div class="absolute right-0 bottom-0 ">
-                {% render 'stepper-number', quantity: item.quantity, item_key: item.key %}
+
+              <div>
+                <div class="absolute right-0 top-0">
+                  <a href="{{ item.url_to_remove }}"> {% render 'remove' %} </a>
+                </div>
+                <div class="absolute right-0 bottom-0 ">
+                  {% render 'stepper-number', type: 'cart', quantity: item.quantity, item_key: item.key %}
+                </div>
               </div>
             </div>
-          </div>
-        {% endfor %}
+          {% endfor %}
+        </form>
       </div>
 
       <div class="w-5/12 border border-black/10 rounded-2xl p-5 ">
