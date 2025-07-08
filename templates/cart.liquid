@@ -19,7 +19,7 @@
     <div class="flex gap-5">
       <div class="cart-items w-7/12 border border-black/10 rounded-2xl p-5 ">
         <form action="{{ routes.cart_url }}" method="post">
-          {%- for item in cart.items -%}
+          {% for item in cart.items %}
             {% if forloop.first == false %}
               <div class="border-style my-5"></div>
             {% endif %}
