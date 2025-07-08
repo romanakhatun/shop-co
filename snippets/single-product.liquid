@@ -1,5 +1,10 @@
-<a href="{{ product.url }}"
-  ><img class="rounded-2xl" src="{{ product.featured_image | image_url }}" alt="{{ product.title }}" width="" height=""
+<a href="{{ product.url }}">
+  <img
+    class="rounded-2xl object-cover w-full h-[192px] mb-4 border border-black/10"
+    src="{{ product.featured_image | image_url }}"
+    alt="{{ product.title }}"
+    width=""
+    height=""
 ></a>
 <h3 class="arrivalsTitle text-[20px]">
   <a href="{{ product.url }}">{{ product.title }}</a>
@@ -21,4 +26,4 @@
   {% endfor %}
   <div class="pl-3">5.0/5</div>
 </div>
-<div class="text-2xl font-bold">$120</div>
+<div class="text-2xl font-bold">{{ product.price | money }}</div>

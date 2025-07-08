@@ -15,35 +15,95 @@
   </div>
   <h1 class="rff-section-title">{{ page_title }}</h1>
 
-  <div class="flex gap-5">
-    <div class="w-7/12 border border-black/10 rounded-2xl p-5 ">
-      <h1>carttt</h1>
-    </div>
-    <div class="w-5/12 border border-black/10 rounded-2xl p-5 ">
-      <div class="font-bold text-2xl mb-6">Order Summery</div>
-      <div class="flex justify-between">
-        <p class="text-xl text-black/60">Subtotal</p>
-        <h4 class="text-xl font-bold">$565</h4>
+  {%- if cart.item_count != 0 -%}
+    <div class="flex gap-5">
+      <div class="cart-items w-7/12 border border-black/10 rounded-2xl p-5 ">
+        {%- for item in cart.items -%}
+          {% if forloop.first == false %}
+            <div class="border-style my-5"></div>
+          {% endif %}
+          <div class="flex items-center gap-4 relative ">
+            {% if item.image %}
+              <img
+                src="{{ item.image | image_url: width: 250}}"
+                alt=""
+                width=""
+                height=""
+                class="w-32 object-cover rounded-lg border border-black/10"
+              >
+            {% endif %}
+
+            <div>
+              <h1>{{ item.title }}</h1>
+              <p class="py-2">{{ item.original_price | money_with_currency }}</p>
+              <p>Item quantity : {{ item.quantity }}</p>
+            </div>
+
+            <div>
+              <div class="absolute right-0 top-0">
+                <a href="{{ item.url_to_remove }}">{% render 'remove', type: 'cart', quantity: item.quantity %}</a>
+              </div>
+              <div class="absolute right-0 bottom-0 ">
+                {% render 'stepper-number', quantity: item.quantity, item_key: item.key %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
       </div>
-      <div class="flex justify-between my-5">
-        <p class="text-xl text-black/60">Discount (-20%)</p>
-        <h4 class="text-[#FF3333] text-xl font-bold">-$113</h4>
-      </div>
-      <div class="flex justify-between">
-        <p class="text-xl text-black/60">Delivery Fee</p>
-        <h4 class="text-xl font-bold">$15</h4>
-      </div>
-      <div class="border-style my-5"></div>
-      <div class="flex justify-between">
-        <p class="text-xl ">Total</p>
-        <h4 class="text-xl font-bold">$467</h4>
-      </div>
-      <form class="flex gap-3 justify-between my-6">
-        <div class="w-9/12 flex items-center bg-gray-100 rounded-full px-4">
+
+      <div class="w-5/12 border border-black/10 rounded-2xl p-5 ">
+        <div class="font-bold text-2xl mb-6">Order Summery</div>
+        <div class="flex justify-between">
+          <p class="text-xl text-black/60">Subtotal</p>
+          <h4 class="text-xl font-bold">{{ cart.items_subtotal_price | money }}</h4>
+        </div>
+        <div class="flex justify-between my-5">
+          <p class="text-xl text-black/60">Discount (-20%)</p>
+          <h4 class="text-[#FF3333] text-xl font-bold">{{ cart.total_discount | money }}</h4>
+        </div>
+        <div class="flex justify-between">
+          <p class="text-xl text-black/60">Delivery Fee</p>
+          <h4 class="text-xl font-bold">
+            {% if cart.delivery_fee %}{{ cart.delivery_fee | money }}{% else %}Free{% endif %}
+          </h4>
+        </div>
+        <div class="border-style my-5"></div>
+        <div class="flex justify-between">
+          <p class="text-xl ">Total</p>
+          <h4 class="text-xl font-bold">{{ cart.total_price | money }}</h4>
+        </div>
+        <form class="flex gap-3 justify-between my-6">
+          <div class="w-9/12 flex items-center bg-gray-100 rounded-full px-4">
+            <svg
+              width="21.000488"
+              height="21.000549"
+              viewBox="0 0 21.0005 21.0005"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <desc>
+              		Created with Pixso.
+              </desc>
+              <defs/>
+              <path id="Vector" d="M20.45 9.86L11.14 0.54C10.96 0.37 10.76 0.23 10.53 0.14C10.3 0.04 10.06 -0.01 9.81 0L1.12 0C0.82 0 0.54 0.11 0.32 0.32C0.11 0.54 0 0.82 0 1.12L0 9.81C-0.01 10.06 0.04 10.3 0.14 10.53C0.23 10.76 0.37 10.96 0.54 11.14L9.86 20.45C10.21 20.8 10.68 21 11.18 21C11.68 21 12.16 20.8 12.51 20.45L20.45 12.51C20.8 12.16 21 11.68 21 11.18C21 10.68 20.8 10.21 20.45 9.86ZM11.18 18.59L2.25 9.65L2.25 2.25L9.65 2.25L18.59 11.18L11.18 18.59ZM6.75 5.25C6.75 5.54 6.66 5.83 6.49 6.08C6.33 6.33 6.09 6.52 5.82 6.63C5.54 6.74 5.24 6.77 4.95 6.72C4.66 6.66 4.39 6.52 4.18 6.31C3.97 6.1 3.83 5.83 3.77 5.54C3.72 5.25 3.75 4.95 3.86 4.67C3.97 4.4 4.16 4.16 4.41 4C4.66 3.83 4.95 3.75 5.25 3.75C5.64 3.75 6.02 3.9 6.31 4.18C6.59 4.47 6.75 4.85 6.75 5.25Z" fill="#000000" fill-opacity="0.400000" fill-rule="nonzero"/>
+            </svg>
+
+            <input
+              class="p-4 w-full"
+              name="search"
+              type="search"
+              placeholder="Add promo code"
+            >
+          </div>
+          <button class="rounded-full py-1 px-8 cursor-pointer bg-black text-white">Apply</button>
+        </form>
+        <button class="flex justify-center items-center w-full rounded-full py-4 px-12 bg-black text-white gap-4 cursor-pointer">
+          Go to Checkout
           <svg
-            width="21.000488"
-            height="21.000549"
-            viewBox="0 0 21.0005 21.0005"
+            width="18.751953"
+            height="15.755798"
+            viewBox="0 0 18.752 15.7558"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -52,35 +112,14 @@
             		Created with Pixso.
             </desc>
             <defs/>
-            <path id="Vector" d="M20.45 9.86L11.14 0.54C10.96 0.37 10.76 0.23 10.53 0.14C10.3 0.04 10.06 -0.01 9.81 0L1.12 0C0.82 0 0.54 0.11 0.32 0.32C0.11 0.54 0 0.82 0 1.12L0 9.81C-0.01 10.06 0.04 10.3 0.14 10.53C0.23 10.76 0.37 10.96 0.54 11.14L9.86 20.45C10.21 20.8 10.68 21 11.18 21C11.68 21 12.16 20.8 12.51 20.45L20.45 12.51C20.8 12.16 21 11.68 21 11.18C21 10.68 20.8 10.21 20.45 9.86ZM11.18 18.59L2.25 9.65L2.25 2.25L9.65 2.25L18.59 11.18L11.18 18.59ZM6.75 5.25C6.75 5.54 6.66 5.83 6.49 6.08C6.33 6.33 6.09 6.52 5.82 6.63C5.54 6.74 5.24 6.77 4.95 6.72C4.66 6.66 4.39 6.52 4.18 6.31C3.97 6.1 3.83 5.83 3.77 5.54C3.72 5.25 3.75 4.95 3.86 4.67C3.97 4.4 4.16 4.16 4.41 4C4.66 3.83 4.95 3.75 5.25 3.75C5.64 3.75 6.02 3.9 6.31 4.18C6.59 4.47 6.75 4.85 6.75 5.25Z" fill="#000000" fill-opacity="0.400000" fill-rule="nonzero"/>
+            <path id="Vector" d="M11.67 0.33L18.42 7.08C18.52 7.18 18.6 7.31 18.66 7.44C18.72 7.58 18.75 7.73 18.75 7.87C18.75 8.02 18.72 8.17 18.66 8.31C18.6 8.44 18.52 8.57 18.42 8.67L11.67 15.42C11.45 15.63 11.17 15.75 10.87 15.75C10.57 15.75 10.28 15.63 10.07 15.42C9.86 15.21 9.74 14.92 9.74 14.62C9.74 14.33 9.86 14.04 10.07 13.83L14.9 9L1.12 9C0.82 9 0.54 8.88 0.32 8.67C0.11 8.46 0 8.17 0 7.87C0 7.57 0.11 7.29 0.32 7.08C0.54 6.87 0.82 6.75 1.12 6.75L14.9 6.75L10.07 1.92C9.86 1.71 9.74 1.42 9.74 1.12C9.74 0.82 9.86 0.54 10.07 0.33C10.28 0.11 10.57 0 10.87 0C11.17 0 11.45 0.11 11.66 0.33L11.67 0.33Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
           </svg>
-
-          <input
-            class="p-4 w-full"
-            name="search"
-            type="search"
-            placeholder="Add promo code"
-          >
-        </div>
-        <button class="rounded-full py-1 px-8 cursor-pointer bg-black text-white">Apply</button>
-      </form>
-      <button class="flex justify-center items-center w-full rounded-full py-4 px-12 bg-black text-white gap-4 cursor-pointer">
-        Go to Checkout
-        <svg
-          width="18.751953"
-          height="15.755798"
-          viewBox="0 0 18.752 15.7558"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-        >
-          <desc>
-          		Created with Pixso.
-          </desc>
-          <defs/>
-          <path id="Vector" d="M11.67 0.33L18.42 7.08C18.52 7.18 18.6 7.31 18.66 7.44C18.72 7.58 18.75 7.73 18.75 7.87C18.75 8.02 18.72 8.17 18.66 8.31C18.6 8.44 18.52 8.57 18.42 8.67L11.67 15.42C11.45 15.63 11.17 15.75 10.87 15.75C10.57 15.75 10.28 15.63 10.07 15.42C9.86 15.21 9.74 14.92 9.74 14.62C9.74 14.33 9.86 14.04 10.07 13.83L14.9 9L1.12 9C0.82 9 0.54 8.88 0.32 8.67C0.11 8.46 0 8.17 0 7.87C0 7.57 0.11 7.29 0.32 7.08C0.54 6.87 0.82 6.75 1.12 6.75L14.9 6.75L10.07 1.92C9.86 1.71 9.74 1.42 9.74 1.12C9.74 0.82 9.86 0.54 10.07 0.33C10.28 0.11 10.57 0 10.87 0C11.17 0 11.45 0.11 11.66 0.33L11.67 0.33Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
-        </svg>
-      </button>
+        </button>
+      </div>
     </div>
-  </div>
+
+  {%- else -%}
+    <p>You Cart is Empty</p>
+    <a href="">Return to Shop</a>
+  {%- endif -%}
 </div>
