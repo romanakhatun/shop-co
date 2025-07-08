@@ -287,6 +287,10 @@
   .inline-flex {
     display: inline-flex;
   }
+  .size-6 {
+    width: calc(var(--spacing) * 6);
+    height: calc(var(--spacing) * 6);
+  }
   .h-9\.5 {
     height: calc(var(--spacing) * 9.5);
   }
