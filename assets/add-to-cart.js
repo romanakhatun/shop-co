@@ -32,11 +32,19 @@ jQuery(document).ready(function ($) {
       data: JSON.stringify(formData),
       dataType: "json",
       success: function (response) {
-        $("#cart-drawer-items").empty();
-        //foreach response
-        $.each(response.items, function (index, item) {
-          $("#cart-drawer-items").append(
-            `<div class="flex items-center py-2">
+        $.ajax({
+          type: "GET",
+          url: "/cart.js",
+          dataType: "json",
+
+          success: function (response) {
+            console.log("Cart response:", response);
+
+            $("#cart-drawer-items").empty();
+            //foreach response
+            $.each(response.items, function (index, item) {
+              $("#cart-drawer-items").append(
+                `<div class="flex items-center py-2">
                   <div class="flex-shrink-0">
                     <img
                       src="${item.image}" alt="${item.title}"
@@ -51,7 +59,9 @@ jQuery(document).ready(function ($) {
                   </div>
                 </div>
               `
-          );
+              );
+            });
+          },
         });
 
         $(addToCartForm).find('button[type="submit"]').text("Added to Cart");

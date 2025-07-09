@@ -1,20 +1,45 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
-      "type": "hero"
+      "type": "hero",
+      "settings": {}
     },
     "logos": {
-      "type": "logos"
+      "type": "logos",
+      "settings": {}
     },
     "product_grid": {
-      "type": "product-grid"
+      "type": "product-grid",
+      "settings": {
+        "title": "NEW ARRIAIVALS",
+        "collection": "frontpage",
+        "url": "",
+        "url_text": "View All"
+      }
     },
     "category_box": {
-      "type": "category-box"
+      "type": "category-box",
+      "settings": {}
     },
     "testimonial": {
-      "type": "testimonial"
+      "type": "testimonial",
+      "settings": {}
     }
   },
-  "order": ["hero", "logos", "product_grid", "category_box", "testimonial"]
+  "order": [
+    "hero",
+    "logos",
+    "product_grid",
+    "category_box",
+    "testimonial"
+  ]
 }
