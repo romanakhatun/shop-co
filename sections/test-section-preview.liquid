@@ -1,0 +1,53 @@
+{% assign section_name = section.settings %}
+
+<h2>{{ section_name.title }}</h2>
+{% if section_name.image != blank %}
+  {{ section_name.image | image_url: width: 1000, height: 500 | image_tag: class: 'preview-image' }}
+{% else %}
+  {{ 'hero-apparel-1' | placeholder_svg_tag: 'preview-image' }}
+{% endif %}
+
+{% if section_name.btn_url != blank and section_name.btn_text != blank %}
+  <a href="{{ section_name.btn_url }}">{{ section_name.btn_text }}</a>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Test Section Preivew",
+  "tag": "section",
+  "class": "section-preview",
+  "limit": 2,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Preview Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Preview Image"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button url"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Test Section Preivew",
+      "settings": {
+        "btn_text": "Learn More",
+        "btn_url": "/"
+      }
+    }
+  ]
+}
+{% endschema %}

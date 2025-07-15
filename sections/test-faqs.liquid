@@ -1,0 +1,68 @@
+<h2>{{ section.settings.title }}</h2>
+
+{% for block in section.blocks %}
+  <h4>{{ block.settings.heading }}</h4>
+  <p>{{ block.settings.answer }}</p>
+{% endfor %}
+
+{% schema %}
+{
+  "name": "Test FAQs",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Title",
+      "id": "title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "label": "Text",
+          "id": "heading"
+        },
+        {
+          "type": "inline_richtext",
+          "label": "Answer",
+          "id": "answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Test FAQs",
+      "settings": {
+        "title": "Frequently Asked Question"
+      },
+      "blocks": [
+        {
+          "type": "question",
+          "settings": {
+            "heading": "Question 1",
+            "answer": "Answer is...."
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "heading": "Question 2",
+            "answer": "Answer is...."
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "heading": "Question 3",
+            "answer": "Answer is...."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

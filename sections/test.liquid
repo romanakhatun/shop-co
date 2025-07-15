@@ -1,0 +1,52 @@
+{% comment %}
+  {% for product in collections.all.products %}
+    <div class="product">
+      <p>{{ forloop.index }}. {{ product.title | truncate: 20 }}</p>
+    </div>
+
+    {% if product.tags.size > 0 %}
+       Tags:
+      <ul>
+        {% for tags in product.tags %}
+          <li class="tag">index:{{ forloop.parentloop.index }} Tags:{{ tags }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endfor %}
+{% endcomment %}
+
+{% comment %}
+  <p>{{ collection.products.size }}</p>
+
+  {% assign my_number_1 = 'html|orange, css|blue, javascript|red' | split: ',' %}
+
+  {% for language in my_number_1 %}
+    {% assign language_name = language | split: '|' | first %}
+    {% assign language_color = language | split: '|' | last %}
+    <p style="color:{{ language_color }}">{{ language_name }}</p>
+  {% endfor %}
+{% endcomment %}
+
+{% comment %}
+  {% assign products = collection.products %}
+  {% assign product_titles = products | map: 'title' | reverse %}
+
+  <P>{{ product_titles | join: '_____' }}</P>
+  {{ product_titles | first }}
+  {{ product_titles | last }}
+  {{ product_titles | size }}
+{% endcomment %}
+
+{% assign products = collection.products %}
+{% assign price_sorted_items = products | sort: 'price' %}
+{% for product in price_sorted_items %}
+  <p>{{ product.title }} - {{ product.price | money }}</p>
+{% endfor %}
+
+{% assign all_price = products | map: 'price' | sort %}
+{% for price in all_price %}
+  <p>{{ price | money }}</p>
+{% endfor %}
+
+{% assign sum_of_price = all_price | sum %}
+<p>Total price : {{ sum_of_price | money }}</p>

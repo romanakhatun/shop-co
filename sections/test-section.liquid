@@ -1,0 +1,37 @@
+<h2>{{ section.settings.text_settings }}</h2>
+<h2>{{ section.settings.range_settings }}</h2>
+
+{% schema %}
+{
+  "name": "Test Section Tutorial",
+  "tag": "section",
+  "limit": 2,
+  "settings": [
+    {
+      "type": "text",
+      "id": "text_settings",
+      "label": "Theme Settings",
+      "default": "this is section settings",
+      "info": "this is helper test",
+      "placeholder": "this is placeholder"
+    },
+    {
+      "type": "range",
+      "id": "range_settings",
+      "label": "Range Settings",
+      "default": 60,
+      "min": 50,
+      "max": 150,
+      "step": 5,
+      "unit": "px"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Test Section Tutorial",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}
